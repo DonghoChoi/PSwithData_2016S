@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# TWITTER SEARCH CRAWLER
-#
-# By: Ziad Matni
-# Last modified: 10/29/2013
-# -*- coding: utf-8 -*-
 
 import time, datetime, sys
 import re, math, argparse
@@ -12,8 +6,6 @@ from urllib.parse import urlparse #Dongho 03/28/16
 import urllib
 import csv
 import tweepy
-#import simplejson
-#import MySQLdb
 
 # URL CLEANUP
 def url_fix(s, charset='utf-8'):
@@ -189,32 +181,8 @@ def tw_search(api):
         csvWriter.writerow([created, str(text).encode("utf-8"), retwc, hashtag, followers, friends])
         counter = counter +1
         if (counter == c):
-            csvFile.close()
-            exit()
-'''
-        if (d == "sc"):
-	        print ("CREATED_AT:", created)
-	        print ("TEXT:::::::", text)
-	        print ("TWEET_ID:::", tweet_id)
-	        print ("COORDS:::::", cords)
-	        print ("RETWEET_CT:", retwc)
-	        print ("HASHTAG::::", hashtag)
-	        print ("URLS:::::::", urls)
-	        print ("USER_NAME::", username)
-	        print ("USER_SINCE:", usersince)
-	        print ("FOLLOWERS::", followers)
-	        print ("FRIENDS::::", friends)
-	        print ("USER_ID::::", authorid)
-	        print ("USER_LOC:::", authorloc)
-	        print ("GEO_ENABLE:", geoenable)
-	        print ("TECH_SRCE::", source)
-
-
-        print ("\n")
-        counter = counter + 1
-        if (counter == c):
-            exit()
-''' 
+            break
+    csvFile.close()
 
 # MAIN ROUTINE
 def main():
